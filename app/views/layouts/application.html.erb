@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>MiSpace</title>
+    <link rel="icon" href="https://res.cloudinary.com/dfx8gzbl4/image/upload/v1685997993/1_q4afaz.png">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,9 +13,11 @@
   </head>
 
   <body>
+
     <%= render 'shared/navbar' %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
+    <%= render 'shared/footer' %>
   </body>
 </html>
