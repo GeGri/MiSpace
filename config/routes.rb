@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
+  # this was made by the devise
   devise_for :users
   root to: "pages#home"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  # we wrote this:
   resources :spaces do
     resources :bookings, only: [:create]
   end
-  res
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :bookings, only: [:new, :edit, :index, :destroy]
+  get "my_bookings", to: "bookings#my_bookings"
 end
