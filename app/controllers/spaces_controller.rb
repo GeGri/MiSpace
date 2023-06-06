@@ -12,7 +12,7 @@ class SpacesController < ApplicationController
     @space = Space.new(space_params)
     @space.user = current_user
     if @space.save
-      redirect_to spaces_path
+      redirect_to root_path
     else
       render :new, see_other: :unprocessable_entity
     end
