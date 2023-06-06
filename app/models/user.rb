@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :spaces, dependent: :destroy
   has_many :bookings, dependent: :destroy
   validates :name, presence: true
+  has_one_attached :photo
 end

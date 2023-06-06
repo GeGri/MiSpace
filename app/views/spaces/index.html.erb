@@ -6,5 +6,8 @@
 <ul><% @spaces.each do |space|%>
   <li><%= space.name %></li>
   <li><%= space.description %></li>
+  <li><%= link_to "See Space", space_path(space.id)  %></li>
+  <br>
     <% end %>
 </ul>
+<br>
