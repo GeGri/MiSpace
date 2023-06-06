@@ -1,2 +1,10 @@
 <h1>Index</h1>
 <%= button_to "New", new_space_path(@space), method: :get, class: "btn btn-warning text-white" %>
+<%= button_to "Home", root_path, method: :get, class: "btn btn-warning text-white"  %>
+<%= button_to "Booking", bookings_path(@booking), method: :get, class: "btn btn-warning text-white" %>
+
+<ul><% @spaces.each do |space|%>
+  <li><%= space.name %></li>
+  <li><%= space.description %></li>
+    <% end %>
+</ul>

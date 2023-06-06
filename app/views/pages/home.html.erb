@@ -1,7 +1,7 @@
 <div class="container text-center">
 <h1 class="no-underline">Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
-
+<p><%= link_to "Spaces", spaces_path(@space) %></p>
 <H3>Quick links</H3>
 <%= button_to "New", new_space_path(@space), method: :get, class: "btn btn-warning text-white" %>
 </div>

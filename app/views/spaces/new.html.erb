@@ -1,3 +1,11 @@
 <h1>Here's your new space 🪸</h1>
-
 <%= button_to "Home", root_path, method: :get, class: "btn btn-warning text-white" %>
+<%= simple_form_for(@space) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :photo, as: :file %>
+  <%= f.input :description %>
+  <%= f.input :availability %>
+  <%= f.input :price %>
+  <%= f.submit %>
+<% end %>

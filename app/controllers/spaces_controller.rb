@@ -10,14 +10,22 @@ class SpacesController < ApplicationController
 
   def create
     @space = Space.new(space_params)
-    @space.save
-    redirect_to space_path(@space)
+    @space.user = current_user
+    if @space.save
+      redirect_to spaces_path
+    else
+      render :new, see_other: :unprocessable_entity
+    end
+  end
+
+  def show
+    @space = Space.find(params[:id])
   end
 
   private
 
   def space_params
-    params.require(:space).permit(:name, :adddress, :photo, :description, :availability, :price)
+    params.require(:space).permit(:name, :address, :photo, :description, :availability, :price)
   end
 
 end
