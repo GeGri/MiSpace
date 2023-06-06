@@ -10,3 +10,4 @@ Rails.application.routes.draw do
   resources :bookings, only: [:new, :edit, :index, :destroy]
   get "my_bookings", to: "bookings#my_bookings"
 end
+
