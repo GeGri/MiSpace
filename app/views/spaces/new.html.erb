@@ -1,2 +1,11 @@
-<h1>NEW-page</h1>
+<h1>NEW-Page</h1>
 <p> <%= link_to "Home", root_path %></p>
+<%= simple_form_for(@space) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :photo, as: :file %>
+  <%= f.input :description %>
+  <%= f.input :availability %>
+  <%= f.input :price %>
+  <%= f.submit %>
+<% end %>
