@@ -10,7 +10,7 @@ puts "Cleaning database..."
 User.destroy_all
 
 puts "Creating a User..."
-tristan = {name: "Tristan", email: "gjgrimm@gmx.de", id: 1, password: "test123"}
+tristan = {name: "Tristan", email: "gjgrimm@gmx.de", password: "test123"}
 user = User.create!(tristan)
 puts "Created #{user.name}"
 
@@ -19,8 +19,8 @@ puts "Cleaning database..."
 Space.destroy_all
 
 puts "Creating spaces..."
-dishoom = {name: "Dishoom", address: "7 Boundary St, London E2 7JE", price: 5, description: "Hello", availability: true, user_id: 1, id: 1}
-pizza_east =  {name: "Pizza East", address: "56A Shoreditch High St, London E1 6PQ", price: 4, description: "Hello", availability: true, user_id: 1, id: 2}
+dishoom = {name: "Dishoom", address: "7 Boundary St, London E2 7JE", price: 5, description: "Hello", availability: true, user: user}
+pizza_east =  {name: "Pizza East", address: "56A Shoreditch High St, London E1 6PQ", price: 4, description: "Hello", availability: true, user: user}
 
 [dishoom, pizza_east].each do |attributes|
   space = Space.create!(attributes)
