@@ -1,2 +1,14 @@
+<<<<<<< HEAD
 <h1>Show_page</h1>
 <p><%= booking.space.name %></p>
+=======
+
+
+<h1><%= @space.name %></h1>
+<% @space.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
+<%= @space.description %>
+
+<%= link_to "go back", spaces_path %>
+>>>>>>> master
