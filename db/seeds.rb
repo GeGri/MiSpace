@@ -7,7 +7,6 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 require "open-uri"
-require "faker"
 
 puts "Cleaning database..."
 User.destroy_all
@@ -55,23 +54,23 @@ space = Space.new(name: "Shed in Kreutzberg", address: "7 Boundary St, Kreutzber
 space.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
 space.save!
 
-file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686064603/kevin-jarrett-Hr3MkDuz4Fs-unsplash_gvvazs.jpg")
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686137870/ales-krivec-4miBe6zg5r0-unsplash_g1wrhx.jpg")
 space = Space.new(name: "Field", address: "7 King St, Bristol BS2 7JE", price: 15, description: "We welcome everyone! This space is yours for £15 an hour.", availability: true, user: user)
 space.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
 space.save!
 
-file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
-space = Space.new(name: "Field", address: "7 King St, Bristol BS2 7JE", price: 15, description: "We welcome everyone! This space is yours for £15 an hour.", availability: true, user: user)
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1685870261/abigail-keenan-8-s5QuUBtyM-unsplash_athxsz.jpg")
+space = Space.new(name: "My Local Football Pitch", address: "98 RUE, Chem. de la Pièce Audrain, 44340 Saint-Jean-de-Boiseau, France", price: 10, description: "My local football pitch is available for hire, for football parties, for games, or for general fun. We’ve had some great times here and would love to share. ⚽️", availability: true, user: user)
 space.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
 space.save!
 
-file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
-space = Space.new(name: "Hackett Group", address: "7 King St, Bristol BS2 7JE", price: 15, description: "Explicabo hic esse. Voluptatem ab voluptatem. Repellendus sapiente harum.", availability: true, user: user)
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1685700687/samples/landscapes/nature-mountains.jpg")
+space = Space.new(name: "Nature Mountains", address: "Petříkovice 86, 541 03 Trutnov, Czechia", price: 15, description: "We have boats! & trees! & everything you could possibly want for a party. All we ask is that you leave our space as you found it.", availability: true, user: user)
 space.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
 space.save!
 
-file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
-space = Space.new(name: "Building Site", address: "Skyway, Kautzerchester, GA 83669", price: 15, description: "We welcome everyone! This space is yours for £15 an hour.", availability: true, user: user)
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686133232/hermes-rivera-eN1qRyrF-U0-unsplash_dbdsfh.jpg")
+space = Space.new(name: "Gorgeous Building", address: "Via Autostrada Sa 2 Del Mediterrsneo, 87010 Frascineto CS, Italy", price: 5, description: "Feel free to make as much mess as you like. Great for big parties, and late night ones too. This building can be found in the middle of town as is super accessible via train, bus, car and tube. Enjoy! 🥂😈🧌🕺🏿", availability: true, user: user)
 space.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
 space.save!
 
