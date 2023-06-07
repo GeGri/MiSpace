@@ -1,22 +1,12 @@
-<h1>Index</h1>
-<%= button_to "New", new_space_path(@space), method: :get, class: "btn btn-warning text-white" %>
-<%= button_to "Home", root_path, method: :get, class: "btn btn-warning text-white"  %>
-<%= button_to "Booking", bookings_path(@booking), method: :get, class: "btn btn-warning text-white" %>
-
-<div class="container text-center">
-<h1 class="no-underline">Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<p><%= link_to "Spaces", spaces_path(@space) %></p>
-<H3>Quick links</H3>
-<%= button_to "New", new_space_path(@space), method: :get, class: "btn btn-warning text-white" %>
+<h1 class="text-center">Event spaces in ya area! 🎉</h1>
+<div class="flex pl-2">
 </div>
-
-<div class="container">
-<h2>Event spaces in ya area! 🎉</h2>
+<div class="text-center index-color">
+<h2>MiSpace is your space </h2>
 <br>
 </div>
 
-<div class="cards container pb-10">
+<div class="cards container pb-10 ">
 <% @spaces.each do |space|%>
   <div class="card-trip">
 <% if space.photos.attached? %>
@@ -26,7 +16,7 @@
   <% end %>
   <div class="card-trip-infos">
     <div>
-      <h2><%=space.name%></h2>
+      <h2 class="index-color-orange"><%=space.name%></h2>
       <p><%= link_to "Learn More", space_path(space) %></p>
       <p><%=space.description%></p>
     </div>
