@@ -3,11 +3,35 @@
 <%= button_to "Home", root_path, method: :get, class: "btn btn-warning text-white"  %>
 <%= button_to "Booking", bookings_path(@booking), method: :get, class: "btn btn-warning text-white" %>
 
-<ul><% @spaces.each do |space|%>
-  <li><%= space.name %></li>
-  <li><%= space.description %></li>
-  <li><%= link_to "See Space", space_path(space.id)  %></li>
-  <br>
-    <% end %>
-</ul>
+<div class="container text-center">
+<h1 class="no-underline">Pages#home</h1>
+<p>Find me in app/views/pages/home.html.erb</p>
+<p><%= link_to "Spaces", spaces_path(@space) %></p>
+<H3>Quick links</H3>
+<%= button_to "New", new_space_path(@space), method: :get, class: "btn btn-warning text-white" %>
+</div>
+
+<div class="container">
+<h2>Event spaces in ya area! 🎉</h2>
 <br>
+</div>
+
+<div class="cards container pb-10">
+<% @spaces.each do |space|%>
+  <div class="card-trip">
+<% if space.photos.attached? %>
+  <% space.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+  <% end %>
+  <div class="card-trip-infos">
+    <div>
+      <h2><%=space.name%></h2>
+      <p><%= link_to "Learn More", space_path(space) %></p>
+      <p><%=space.description%></p>
+    </div>
+    <h2 class="card-trip-pricing"><%=space.price%>$</h2>
+    <img src="https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686049497/b2344430-b52f-4327-a75d-98954ffe3407_kkseel.jpg" class="card-trip-user avatar-bordered" />
+  </div>
+</div>
+<%end%>
