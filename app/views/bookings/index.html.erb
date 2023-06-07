@@ -1,3 +1,12 @@
 <h1>Booking_Index</h1>
-<p> <%= link_to "Home", root_path %></p>
+<p><%= link_to "Home", root_path %></p>
 <p><%= link_to "New Booking", new_booking_path(@booking) %></p>
+
+<ul>
+  <% @bookings.each do |booking| %>
+    <li>
+      <%= booking.space.name %>
+      <%= booking.space.description %>
+    </li>
+  <% end %>
+</ul>

@@ -3,8 +3,10 @@
 <%= button_to "Home", root_path, method: :get, class: "btn btn-warning text-white"  %>
 <%= button_to "Booking", bookings_path(@booking), method: :get, class: "btn btn-warning text-white" %>
 
-<ul><% @spaces.each do |space|%>
-  <li><%= space.name %></li>
-  <li><%= space.description %></li>
-    <% end %>
+<ul>
+  <% @spaces.each do |space| %>
+    <li><%= space.name %></li>
+    <li><%= space.description %></li>
+    <li><%= button_to "Reserve", bookings_path(space_id: space.id), method: :post, class: "btn btn-primary" %></li>
+  <% end %>
 </ul>
