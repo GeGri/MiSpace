@@ -1,2 +1,5 @@
-<h1>NEW BOOKING</h1>
-<p> <%= link_to "Home", root_path %></p>
+<h1>Congratulations!</h1>
+<h2>You've just reserved <%= @space.name %> 💘🎉</h2>
+  <%= cl_image_tag @space.photos[0].key, height: 300, width: 400, crop: :fill %>
+  <br>
+<p> <%= link_to "Home", root_path, class: "btn btn-warning" %></p>

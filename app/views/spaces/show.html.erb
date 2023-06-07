@@ -5,5 +5,6 @@
   <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
 <% end %>
 <%= @space.description %>
+<%= link_to "Reserve", new_space_booking_path(@space), method: :post, class: "btn btn-warning" %>
 
-<%= link_to "go back", spaces_path %>
+<%= link_to "go back", spaces_path, class: "btn btn-warning" %>
