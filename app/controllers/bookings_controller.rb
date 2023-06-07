@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @space = Space.find(params[:space_id])
   end
 
   def create
@@ -14,7 +15,7 @@ class BookingsController < ApplicationController
     redirect_to booking_path(@booking)
   end
 
-  
+
 
   private
 
