@@ -1,3 +1,5 @@
+
+
 <h1><%= @space.name %></h1>
 <% @space.photos.each do |photo| %>
   <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
