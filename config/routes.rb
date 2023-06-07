@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # this was made by the devise
   devise_for :users
-  root to: "pages#home"
+  root to: "spaces#index"
 
   # we wrote this:
   resources :spaces do
@@ -10,4 +10,3 @@ Rails.application.routes.draw do
   resources :bookings, only: [:new, :edit, :index, :destroy]
   get "my_bookings", to: "bookings#my_bookings"
 end
-
