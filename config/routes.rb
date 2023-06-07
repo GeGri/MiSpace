@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   # we wrote this:
   resources :spaces do
-    resources :bookings, only: [:create, :new]
+    resources :bookings, only: [:create]
   end
   resources :bookings, only: [:new, :edit, :index, :destroy]
   get "my_bookings", to: "bookings#my_bookings"
