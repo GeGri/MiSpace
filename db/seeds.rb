@@ -70,3 +70,34 @@ file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-C
 space = Space.new(name: "Building Site", address: "Skyway, Kautzerchester, GA 83669", price: 15, description: "We welcome everyone! This space is yours for £15 an hour.", availability: true, user: user)
 space.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
 space.save!
+
+# 5.times do
+#   name = Faker::Company.name
+#   address = Faker::Address.full_address
+#   price = Faker::Number.between(from: 50, to: 500)
+#   description = Faker::Lorem.paragraph(sentence_count: 3)
+
+#   puts "Name: #{name}, Address: #{address}, Price: #{price}, Description: #{description}"
+# end
+
+# puts "Cleaning database..."
+# User.destroy_all
+
+#puts "Creating a User..."
+# tristan = {name: "Tristan", email: "gjgrimm@gmx.de", password: "test123"}
+# user = User.create!(tristan)
+# puts "Created #{user.name}"
+
+
+# puts "Cleaning database..."
+# Space.destroy_all
+
+# puts "Creating spaces..."
+# dishoom = {name: "Dishoom", address: "7 Boundary St, London E2 7JE", price: 5, description: "Hello", availability: true, user: user}
+# pizza_east =  {name: "Pizza East", address: "56A Shoreditch High St, London E1 6PQ", price: 4, description: "Hello", availability: true, user: user}
+
+# [dishoom, pizza_east].each do |attributes|
+#  space = Space.create!(attributes)
+#  puts "Created #{space.name}"
+# end
+# puts "Finished!"
