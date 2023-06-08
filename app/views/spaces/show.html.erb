@@ -7,9 +7,9 @@
 <%= @space.description %>
 <h3>Already booked timeslots:</h3>
 <ul>
-  <% @bookings.each do |booking| %>
-    <li> <strong>Start:</strong> <%= booking.start_date.strftime("%B") %> <%= booking.start_date.strftime("%d") %>, <%= booking.start_date.strftime("at %I:%M%p") %>
-        <strong>End:</strong> <%= booking.end_date.strftime("%B") %> <%= booking.end_date.strftime("%d") %>, <%= booking.end_date.strftime("at %I:%M%p") %> </li>
+<% @bookings.each do |book| %>
+    <li> <strong>Start:</strong> <%= book.start_date.strftime("%B") %> <%= book.start_date.strftime("%d") %>, <%= book.start_date.strftime("at %I:%M%p") %>
+        <strong>End:</strong> <%= book.end_date.strftime("%B") %> <%= book.end_date.strftime("%d") %>, <%= book.end_date.strftime("at %I:%M%p") %> </li>
   <% end %>
 </ul>
 <%if current_user%>
