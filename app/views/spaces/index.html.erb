@@ -6,6 +6,26 @@
 <br>
 </div>
 
+<div class="row justify-content-center">
+  <div class="col-sm-8 my-3">
+    <%= form_with url: spaces_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Search a space"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-warning" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="container pb-5">
+ <div style="width: 100%; height: 500px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+</div>
+
 <div class="cards container pb-10 ">
 <% @spaces.each do |space|%>
   <div class="card-trip">
@@ -23,5 +43,11 @@
     <h2 class="card-trip-pricing"><%=space.price%>$</h2>
     <img src="https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686049497/b2344430-b52f-4327-a75d-98954ffe3407_kkseel.jpg" class="card-trip-user avatar-bordered" />
   </div>
+  <%# this is the map %>
 </div>
+
+
+
+
+
 <%end%>
