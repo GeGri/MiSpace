@@ -34,8 +34,10 @@
             <!-- <a href="#" class="no-underline bg-orange-400 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Home</a> -->
             <!-- <%= button_to "Sign In", bookings_path(@booking), method: :get, class: "no-underline bg-orange-400 text-white rounded-md px-3 py-2 text-sm font-medium" %> -->
             <%= button_to "Home", root_path, method: :get, class: "no-underline bg-orange-400 text-white rounded-md px-3 py-2 text-sm font-medium" %>
+            <%if current_user%>
             <%= button_to "Create new listing", new_space_path(@space), method: :get, class: "no-underline text-orange-300 hover:bg-orange-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" %>
-            <%= button_to "Booking", my_bookings_path(@booking), method: :get, class: "no-underline text-orange-300 hover:bg-orange-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" %>
+            <%= button_to "Booking", bookings_path, method: :get, class: "no-underline text-orange-300 hover:bg-orange-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" %>
+            <%end%>
             <% if user_signed_in? %>
             <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "no-underline text-orange-300 hover:bg-orange-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" %>
             <% else %>
@@ -55,7 +57,7 @@
       <!-- Current: "bg-orange-900 text-white", Default: "text-orange-300 hover:bg-orange-700 hover:text-white" -->
       <%= button_to "Home", root_path, method: :get, class: "no-underline bg-orange-400 text-white rounded-md px-3 py-2 text-sm font-medium" %>
             <%= button_to "Create new listing", new_space_path(@space), method: :get, class: "no-underline text-orange-300 hover:bg-orange-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" %>
-            <%= button_to "Booking", my_bookings_path(@booking), method: :get, class: "no-underline text-orange-300 hover:bg-orange-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" %>
+            <%= button_to "Booking", bookings_path, method: :get, class: "no-underline text-orange-300 hover:bg-orange-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" %>
             <% if user_signed_in? %>
             <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "no-underline text-orange-300 hover:bg-orange-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" %>
             <% else %>

@@ -1,7 +1,8 @@
 class BookingsController < ApplicationController
 
   def index
-    @bookings = Booking.all
+    @bookings = current_user.bookings
+    @spaces = current_user.spaces
   end
 
   def new
@@ -10,11 +11,34 @@ class BookingsController < ApplicationController
   end
 
   def create
+    @space = Space.find(params[:space_id])
     @booking = Booking.new(booking_params)
-    @booking.save
-    redirect_to booking_path(@booking)
+    @booking.user = current_user
+    @booking.space = @space
+    if @booking.save
+      redirect_to bookings_path
+    else
+      render "spaces/show", status: :unprocessable_entity
+    end
   end
 
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.user = current_user
+    @booking.update(booking_params) # Will raise ActiveModel::ForbiddenAttributesError
+    redirect_to bookings_path
+  end
+
+  def edit
+    @booking = Booking.find(params[:id])
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    # No need for app/views/restaurants/destroy.html.erb
+    redirect_to bookings_path, status: :see_other
+  end
 
 
   private

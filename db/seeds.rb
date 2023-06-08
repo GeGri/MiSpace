@@ -7,7 +7,6 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 require "open-uri"
-require "faker"
 
 puts "Cleaning database..."
 User.destroy_all
