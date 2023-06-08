@@ -13,6 +13,7 @@ class BookingsController < ApplicationController
   def create
     @space = Space.find(params[:space_id])
     @booking = Booking.new(booking_params)
+    @bookings = @space.bookings
     @booking.user = current_user
     @booking.space = @space
     if @booking.save
