@@ -5,6 +5,22 @@
   <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
 <% end %>
 <%= @space.description %>
-<%= link_to "Reserve", new_space_booking_path(@space), method: :post, class: "btn btn-warning" %>
-
-<%= link_to "go back", spaces_path, class: "btn btn-warning" %>
+<h3>Already booked timeslots:</h3>
+<ul>
+  <% @bookings.each do |booking| %>
+    <li> <strong>Start:</strong> <%= booking.start_date.strftime("%B") %> <%= booking.start_date.strftime("%d") %>, <%= booking.start_date.strftime("at %I:%M%p") %>
+        <strong>End:</strong> <%= booking.end_date.strftime("%B") %> <%= booking.end_date.strftime("%d") %>, <%= booking.end_date.strftime("at %I:%M%p") %> </li>
+  <% end %>
+</ul>
+<%if current_user%>
+  <%= simple_form_for [@space, @booking] do |f| %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.button :submit, class: "btn btn-warning"  %>
+  <% end %>
+<% else %>
+  <%= link_to "Please log in to book",  new_user_session_path, class: "btn btn-warning" %>
+  <br>
+<% end %>
+<br>
+<%= link_to "Home", root_path, class: "btn btn-warning" %>

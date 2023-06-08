@@ -20,6 +20,26 @@ class SpacesController < ApplicationController
 
   def show
     @space = Space.find(params[:id])
+    @booking = Booking.new
+    @bookings = @space.bookings
+  end
+
+  def update
+    @space = Space.find(params[:id])
+    @space.user = current_user
+    @space.update(space_params) # Will raise ActiveModel::ForbiddenAttributesError
+    redirect_to bookings_path
+  end
+
+  def edit
+    @space = Space.find(params[:id])
+  end
+
+  def destroy
+    @space = Space.find(params[:id])
+    @space.destroy
+    # No need for app/views/restaurants/destroy.html.erb
+    redirect_to bookings_path, status: :see_other
   end
 
   private

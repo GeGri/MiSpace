@@ -1,0 +1,7 @@
+<h1>You wanna edit your Bookings?</h1>
+<h2> Choose a new timesolt: </h2>
+<%= simple_form_for [@booking] do |f| %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.button :submit, class: "btn btn-warning"  %>
+  <% end %>
