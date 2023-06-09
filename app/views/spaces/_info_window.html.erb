@@ -1,8 +1,8 @@
 <%= link_to space_path(space) do %>
-<div class="remove-underline">
-<h2><%= space.name %></h2>
+<div class="remove-underline rounded-lg">
+<h5><%= space.name %></h5>
 <% space.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <%= cl_image_tag photo.key, height: 150, width: 250, crop: :fill, radius: 16 %>
 <% end %>
 <br>
 <p><%= space.address %></p>
