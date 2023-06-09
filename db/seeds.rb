@@ -1,11 +1,3 @@
- # This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-
 require "open-uri"
 
 puts "Cleaning database..."
@@ -74,33 +66,22 @@ space = Space.new(name: "Gorgeous Building", address: "St Gabriel’s Court, Bri
 space.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
 space.save!
 
-# 5.times do
-#   name = Faker::Company.name
-#   address = Faker::Address.full_address
-#   price = Faker::Number.between(from: 50, to: 500)
-#   description = Faker::Lorem.paragraph(sentence_count: 3)
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686137870/ales-krivec-4miBe6zg5r0-unsplash_g1wrhx.jpg")
+space = Space.new(name: "Big Field", address: "125 St Asaph Rd, Brockley, London", price: 15, description: "We welcome everyone! This space is yours for £15 an hour.", availability: true, user: user)
+space.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
+space.save!
 
-#   puts "Name: #{name}, Address: #{address}, Price: #{price}, Description: #{description}"
-# end
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1685870261/abigail-keenan-8-s5QuUBtyM-unsplash_athxsz.jpg")
+space = Space.new(name: "Football Pitch", address: "77 rue Notre Dame des Champs, Paris, France", price: 10, description: "My local football pitch is available for hire, for football parties, for games, or for general fun. We’ve had some great times here and would love to share. ⚽️", availability: true, user: user)
+space.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
+space.save!
 
-# puts "Cleaning database..."
-# User.destroy_all
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1685700687/samples/landscapes/nature-mountains.jpg")
+space = Space.new(name: "Nature Mountains", address: "Petříkovice 86, 541 03 Trutnov, Czechia", price: 15, description: "We have boats! & trees! & everything you could possibly want for a party. All we ask is that you leave our space as you found it.", availability: true, user: user)
+space.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
+space.save!
 
-#puts "Creating a User..."
-# tristan = {name: "Tristan", email: "gjgrimm@gmx.de", password: "test123"}
-# user = User.create!(tristan)
-# puts "Created #{user.name}"
-
-
-# puts "Cleaning database..."
-# Space.destroy_all
-
-# puts "Creating spaces..."
-# dishoom = {name: "Dishoom", address: "7 Boundary St, London E2 7JE", price: 5, description: "Hello", availability: true, user: user}
-# pizza_east =  {name: "Pizza East", address: "56A Shoreditch High St, London E1 6PQ", price: 4, description: "Hello", availability: true, user: user}
-
-# [dishoom, pizza_east].each do |attributes|
-#  space = Space.create!(attributes)
-#  puts "Created #{space.name}"
-# end
-# puts "Finished!"
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686133232/hermes-rivera-eN1qRyrF-U0-unsplash_dbdsfh.jpg")
+space = Space.new(name: "Gorgeous Building", address: "St Gabriel’s Court, Bristol", price: 5, description: "Feel free to make as much mess as you like. Great for big parties, and late night ones too. This building can be found in the middle of town as is super accessible via train, bus, car and tube. Enjoy! 🥂😈🧌🕺🏿", availability: true, user: user)
+space.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
+space.save!

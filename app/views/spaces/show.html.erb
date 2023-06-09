@@ -1,26 +1,36 @@
+  <h1 class="pl-3"><%= @space.name %></h1>
+<div class="flex">
+  <div class="w-50 p-2 pb-3">
+    <% @space.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
+  </div>
 
-
-<h1><%= @space.name %></h1>
-<% @space.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
-<%= @space.description %>
-<h3>Already booked timeslots:</h3>
-<ul>
-<% @bookings.each do |book| %>
-    <li> <strong>Start:</strong> <%= book.start_date.strftime("%B") %> <%= book.start_date.strftime("%d") %>, <%= book.start_date.strftime("at %I:%M%p") %>
-        <strong>End:</strong> <%= book.end_date.strftime("%B") %> <%= book.end_date.strftime("%d") %>, <%= book.end_date.strftime("at %I:%M%p") %> </li>
-  <% end %>
-</ul>
+  <div class="w-50">
+  <%= @space.description %>
+  <br>
+  <hr>
+    <h3>Already booked timeslots:</h3>
+    <ul>
+    <% @bookings.each do |book| %>
+        <li> <strong>Start:</strong> <%= book.start_date.strftime("%B") %> <%= book.start_date.strftime("%d") %>, <%= book.start_date.strftime("at %I:%M%p") %>
+            <strong>End:</strong> <%= book.end_date.strftime("%B") %> <%= book.end_date.strftime("%d") %>, <%= book.end_date.strftime("at %I:%M%p") %> </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
 <%if current_user%>
+  <hr>
+  <h3>Pick your time ✨</h3>
+  <br>
   <%= simple_form_for [@space, @booking] do |f| %>
     <%= f.input :start_date %>
     <%= f.input :end_date %>
-    <%= f.button :submit, class: "btn btn-warning"  %>
+    <%= f.button :submit, class: "btn btn-warning text-white"  %>
   <% end %>
 <% else %>
-  <%= link_to "Please log in to book",  new_user_session_path, class: "btn btn-warning" %>
+  <%= link_to "Please log in to book",  new_user_session_path, class: "btn btn-warning text-white" %>
   <br>
 <% end %>
 <br>
-<%= link_to "Home", root_path, class: "btn btn-warning" %>
+<%# <%= link_to "Home", root_path, class: "btn btn-warning" %>
