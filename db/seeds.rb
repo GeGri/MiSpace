@@ -50,17 +50,17 @@ user.save!
 puts "Creating the spaces"
 
 file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686064603/kevin-jarrett-Hr3MkDuz4Fs-unsplash_gvvazs.jpg")
-space = Space.new(name: "Shed in Kreuzberg", address: "Ruedersdorferstr. 7, 10243 Berlin Germany", price: 5, description: "This great shed, is worth every penny. It's got lots of natural light. Dogs welcome", availability: true, user: user)
+space = Space.new(name: "Hall in Kreuzberg", address: "Ruedersdorferstr. 7, 10243 Berlin Germany", price: 5, description: "This great shed, is worth every penny. It's got lots of natural light. Dogs welcome", availability: true, user: user)
 space.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
 space.save!
 
 file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686137870/ales-krivec-4miBe6zg5r0-unsplash_g1wrhx.jpg")
-space = Space.new(name: "Field", address: "125 St Asaph Rd, Brockley, London", price: 15, description: "We welcome everyone! This space is yours for £15 an hour.", availability: true, user: user)
+space = Space.new(name: "Big Field", address: "125 St Asaph Rd, Brockley, London", price: 15, description: "We welcome everyone! This space is yours for £15 an hour.", availability: true, user: user)
 space.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
 space.save!
 
 file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1685870261/abigail-keenan-8-s5QuUBtyM-unsplash_athxsz.jpg")
-space = Space.new(name: "My Local Football Pitch", address: "77 rue Notre Dame des Champs, Paris, France", price: 10, description: "My local football pitch is available for hire, for football parties, for games, or for general fun. We’ve had some great times here and would love to share. ⚽️", availability: true, user: user)
+space = Space.new(name: "Football Pitch", address: "77 rue Notre Dame des Champs, Paris, France", price: 10, description: "My local football pitch is available for hire, for football parties, for games, or for general fun. We’ve had some great times here and would love to share. ⚽️", availability: true, user: user)
 space.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
 space.save!
 
