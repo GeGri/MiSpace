@@ -1,6 +1,9 @@
 <div class = "container">
-  <h1>Amazing! Here you see all your listings</h1>
-  <h2>Bookings:</h2>
+
+  <h1 class="text-center" style="color:#fb923c" >Here are your listings 💘 </h1>
+  <br>
+  <h2 class="index-color">Your bookings:</h2>
+  <br>
   <div class="cards container pb-10 ">
     <% @bookings.each do |booking|%>
       <div class="card-trip">
@@ -12,13 +15,13 @@
       <div class="card-trip-infos">
         <div>
           <h2 class="index-color-orange"><%=booking.space.name%></h2>
-          <p> Beginnig: <%= booking.start_date.strftime("%B") %> <%= booking.start_date.strftime("%d") %>, <%= booking.start_date.strftime("at %I:%M%p") %></p>
+          <p> Beginning: <%= booking.start_date.strftime("%B") %> <%= booking.start_date.strftime("%d") %>, <%= booking.start_date.strftime("at %I:%M%p") %></p>
           <p> Ending: <%= booking.end_date.strftime("%B") %> <%= booking.end_date.strftime("%d") %>, <%= booking.end_date.strftime("at %I:%M%p") %> </p>
           <p><%=booking.space.description%></p>
           <div class = "flex">
-          <%= link_to "Delete",booking_path(booking),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-          <%= link_to "Update",edit_booking_path(booking) %>
-          <p><%= link_to "Learn More", space_path(booking.space) %></p>
+          <%= link_to "",booking_path(booking),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "fa-solid fa-trash fa-lg pt-3 pr-2"%>
+          <%= link_to "",edit_booking_path(booking), class: "fa-solid fa-pen p-2" %>
+          <%= link_to "Learn More", space_path(booking.space), class: "p-2 learn" %>
           </div>
         </div>
         <h2 class="card-trip-pricing"><%=booking.space.price%>$</h2>
@@ -28,7 +31,8 @@
     <%end%>
   </div>
 
-  <h2>Spaces:</h2>
+  <h2 class="index-color">Your Listed spaces:</h2>
+  <br>
   <div class="cards container pb-10 ">
     <% @spaces.each do |space|%>
       <div class="card-trip">
@@ -42,9 +46,9 @@
           <h2 class="index-color-orange"><%=space.name%></h2>
           <p><%=space.description%></p>
          <div class = "flex">
-          <p> <%= link_to "Delete",space_path(space),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%> </p>
-          <p> <%= link_to "Update",edit_space_path(space)%> </p>
-          <p> <%= link_to "Learn More", space_path(space) %></p>
+            <%= link_to "",space_path(space),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "fa-solid fa-trash fa-lg pt-3 pr-2"%> </p>
+            <%= link_to "",edit_space_path(space), class: "fa-solid fa-pen p-2"%> </p>
+            <%= link_to "Learn More", space_path(space), class: "p-2 learn" %></p>
           </div>
         </div>
         <h2 class="card-trip-pricing"><%=space.price%>$</h2>
@@ -53,7 +57,4 @@
     </div>
     <%end%>
   </div>
-
-
-  <p> <%= link_to "Home", root_path, class: "btn btn-warning"%></p>
 </div>
