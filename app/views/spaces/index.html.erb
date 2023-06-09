@@ -2,50 +2,52 @@
 <div class="flex pl-2">
 </div>
 <div class="text-center index-color">
-<h2>MiSpace is your space ! </h2>
-<br>
+  <h2>MiSpace is your space ! </h2>
+  <br>
 </div>
 
 <div class="row justify-content-center">
   <div class="col-sm-8 my-3">
     <%= form_with url: spaces_path, method: :get, class: "d-flex" do %>
       <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Search a space"
+          params[:query],
+          class: "form-control",
+          placeholder: "Search a space"
         %>
       <%= submit_tag "Search", name: "", class: "btn btn-warning" %>
     <% end %>
   </div>
 </div>
 
-<div class="container pb-5">
- <div style="width: 100%; height: 500px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-</div>
+<div class="main-container">
 
-
-<div class="cards container pb-10 ">
-<% @spaces.each do |space|%>
-<%= link_to space_path(space), class: "text-decoration-none" do %>
-  <div class="card-trip">
-<% if space.photos.attached? %>
-  <% space.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-  <% end %>
-  <% end %>
-  <div class="card-trip-infos">
-    <div>
-      <h2 class="index-color-orange"><%=space.name%></h2>
-      <p class = "text-black"><%=space.description%></p>
+  <div class="map-container pb-5" id="map">
+    <div style="height: 95vh;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-    <h2 class="card-trip-pricing"><%=space.price%>$</h2>
-    <img src="https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686049497/b2344430-b52f-4327-a75d-98954ffe3407_kkseel.jpg" class="card-trip-user avatar-bordered" />
   </div>
+  <div class="cards-container pb-10 ">
+    <% @spaces.each do |space|%>
+    <%= link_to space_path(space), class: "text-decoration-none" do %>
+      <div class="card-trip">
+        <% if space.photos.attached? %>
+          <% space.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+          <% end %>
+        <% end %>
+        <div class="card-trip-infos">
+          <div>
+            <h2 class="index-color-orange"><%=space.name%></h2>
+            <p class = "text-black"><%=space.description%></p>
+          </div>
+          <h2 class="card-trip-pricing"><%=space.price%>$</h2>
+          <img src="https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686049497/b2344430-b52f-4327-a75d-98954ffe3407_kkseel.jpg" class="card-trip-user avatar-bordered" />
+        </div>
+        <%# this is the map %>
+      </div>
+    <%end%>
+   <%end%>
   </div>
-  <%# this is the map %>
-<%end%>
-<%end%>
 </div>
